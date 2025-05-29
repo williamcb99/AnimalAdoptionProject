@@ -23,7 +23,10 @@ namespace AnimalService.Infrastructure.Persistence
                 .HasConversion(
                         id => id.Value,
                         value => new AnimalId(value)
-                    );        
+                    );
+
+                builder.Property(a => a.Type)
+                    .HasConversion<string>();
             });
 
             modelBuilder.SeedAnimals();
