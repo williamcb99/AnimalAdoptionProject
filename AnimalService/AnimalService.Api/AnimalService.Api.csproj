@@ -15,4 +15,10 @@
     <ProjectReference Include="..\AnimalService.Infrastructure\AnimalService.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="animal-api.yml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
