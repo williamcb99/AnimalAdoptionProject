@@ -1,0 +1,37 @@
+﻿openapi: 3.0.1
+info:
+  title: Animal API
+  version: 1.0.0
+  description: API for managing animal data.
+paths:
+    /api/animals:
+        get:
+            summary: Get all animals
+            operationId: GetAllAnimals
+            responses:
+                '200':
+                    description: List of all animals
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Animal'
+
+components:
+    schemas:
+        Animal:
+            type: object
+            properties:
+                id:
+                    type: string
+                    format: uuid
+                type:
+                    type: string
+                    enum:
+                        - Cat
+                        - Dog
+                name:
+                    type: string
+                ageInYears:
+                    type: integer
