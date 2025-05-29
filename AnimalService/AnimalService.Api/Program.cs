@@ -13,6 +13,8 @@ builder.Services.AddDbContext<AnimalDbContext>(options =>
 
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -21,12 +23,13 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
-app.MapOpenApi();
-
 if (app.Environment.IsDevelopment())
 {
+    app.MapOpenApi();
     app.MapScalarApiReference();
 }
+
+app.MapControllers();
 
 app.MapGet("/", () => "Welcome to the Animal Service API!");
 
