@@ -2,6 +2,7 @@
 using AnimalService.Domain.Classes;
 using AnimalService.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using SharedKernel.Identifiers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace AnimalService.Infrastructure.Repositories
         public async Task<List<Animal>> GetAllAsync()
         {
             return await _context.Animals.ToListAsync();
+        }
+
+        public async Task<Animal?> GetByIdAsync(AnimalId id)
+        {
+            return await _context.Animals.FirstOrDefaultAsync(a => a.Id == id);
         }
     }
 }

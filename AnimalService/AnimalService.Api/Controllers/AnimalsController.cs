@@ -39,14 +39,11 @@ namespace AnimalService.Api.Controllers
         [Tags("Animals")]
         [ProducesResponseType(typeof(AnimalDto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         [HttpGet("GetAnimalById/{id:guid}")]
         public async Task<IActionResult> GetAnimalById([FromRoute] Guid id)
         {
             var animalId = new AnimalId(id);
-            var animals = await _animalRepository.GetAllAsync();
-            if (animals == null) { return Problem("Animal repository returned null."); }
-            var animal = animals.Find(a => a.Id == animalId);
+            var animal = await _animalRepository.GetByIdAsync(animalId);
             if (animal == null)
             {
                 return NotFound($"Animal with ID {id} not found.");
