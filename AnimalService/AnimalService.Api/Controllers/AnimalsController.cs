@@ -16,7 +16,10 @@ namespace AnimalService.Api.Controllers
             _animalRepository = animalRepository;
         }
 
-        [HttpGet]
+        [EndpointDescription("Get all animals")]
+        [EndpointSummary("Get all animals")]
+        [Tags("Animals")]
+        [HttpGet("GetAllAnimals")]
         public async Task<IActionResult> GetAllAnimals()
         {
             var animals = await _animalRepository.GetAllAsync();
