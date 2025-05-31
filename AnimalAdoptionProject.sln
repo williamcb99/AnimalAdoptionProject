@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AnimalService", "AnimalService", "{74BAB256-E794-ED39-3953-1DA3D241995F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalService.Api", "AnimalService\AnimalService.Api\AnimalService.Api.csproj", "{F2991215-C316-49B8-9C78-0B5E5E47D8B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DEB3E8BC-E83F-4DF4-AA62-ED28F0714660} = {DEB3E8BC-E83F-4DF4-AA62-ED28F0714660}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalService.Application", "AnimalService\AnimalService.Application\AnimalService.Application.csproj", "{9336F25D-95B4-4B2F-B74B-DF99928A2BBC}"
 EndProject
@@ -232,5 +235,8 @@ Global
 		{C08F46E0-F8D9-4EBB-BF92-8F929C7240AC} = {C0127DB6-3CA8-EE98-7726-A4993E48C5D4}
 		{01FF04E9-4C71-4D28-B9B8-DB491595E7F0} = {C0127DB6-3CA8-EE98-7726-A4993E48C5D4}
 		{F13EB896-23E9-4DFA-8251-8BBE51F3B69F} = {C0127DB6-3CA8-EE98-7726-A4993E48C5D4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB4D06A3-99C8-4524-9E71-497008CF7E7D}
 	EndGlobalSection
 EndGlobal

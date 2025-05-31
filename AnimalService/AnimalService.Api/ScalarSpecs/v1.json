@@ -1,0 +1,37 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AnimalService.Api | v1",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:7011"
+    },
+    {
+      "url": "http://localhost:5012"
+    }
+  ],
+  "paths": {
+    "/api/Animals/GetAllAnimals": {
+      "get": {
+        "tags": [
+          "Animals"
+        ],
+        "summary": "Get all animals",
+        "description": "Get all animals",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { },
+  "tags": [
+    {
+      "name": "Animals"
+    }
+  ]
+}
