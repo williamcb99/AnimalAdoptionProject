@@ -1,16 +1,15 @@
-﻿using AnimalService.Domain.Enums;
+﻿using AnimalService.Api.Interface;
+using AnimalService.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace AnimalService.Api.Models
 {
-    public class AnimalDto
+    public class CreateAnimalDto : IAnimalData
     {
-        public Guid Id { get; set; }
-
         [Required]
         [EnumDataType(typeof(AnimalType))]
         public string Type { get; set; }
-        
+
         [Required]
         public string Name { get; set; }
 
