@@ -13,5 +13,7 @@ namespace AnimalService.Application.Interfaces
         Task<List<Animal>> GetAllAsync();
         Task<Animal?> GetByIdAsync(AnimalId id);
         Task AddAsync(Animal animal);
-    }
+
+        Task RemoveAsync(AnimalId id);
+   }
 }

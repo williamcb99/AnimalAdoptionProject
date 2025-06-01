@@ -35,5 +35,16 @@ namespace AnimalService.Infrastructure.Repositories
         {
             return await _context.Animals.FirstOrDefaultAsync(a => a.Id == id);
         }
+
+        public async Task RemoveAsync(AnimalId id)
+        {
+            var animal = await _context.Animals.FirstOrDefaultAsync(a => a.Id == id);
+            if (animal == null)
+            {
+                throw new KeyNotFoundException($"Animal with ID {id} not found.");
+            }
+            _context.Animals.Remove(animal);
+            await _context.SaveChangesAsync();
+        }
     }
 }
