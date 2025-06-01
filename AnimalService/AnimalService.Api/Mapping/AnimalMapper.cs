@@ -1,4 +1,5 @@
-﻿using AnimalService.Api.Models;
+﻿using AnimalService.Api.Interface;
+using AnimalService.Api.Models;
 using AnimalService.Domain.Classes;
 using AnimalService.Domain.Enums;
 using SharedKernel.Identifiers;
@@ -10,7 +11,7 @@ namespace AnimalService.Api.Mapping
         public static AnimalDto MapToDto(Animal animal) => new()
         {
             Id = animal.Id.Value,
-            Type = animal.Type,
+            Type = animal.Type.ToString(),
             Name = animal.Name,
             AgeInYears = animal.AgeInYears
         };
@@ -18,18 +19,17 @@ namespace AnimalService.Api.Mapping
         public static Animal MapToDomain(AnimalDto dto) => new()
         {
             Id = new AnimalId(dto.Id),
-            Type = dto.Type,
+            Type = Enum.Parse<AnimalType>(dto.Type),
             Name = dto.Name,
             AgeInYears = dto.AgeInYears
         };
 
-        public static Animal MapToDomain(AnimalDto dto, AnimalId id) => new()
+        public static Animal MapToDomain(IAnimalData data, AnimalId id) => new()
         {
             Id = id,
-            Type = dto.Type,
-            Name = dto.Name,
-            AgeInYears = dto.AgeInYears
+            Type = Enum.Parse<AnimalType>(data.Type),
+            Name = data.Name,
+            AgeInYears = data.AgeInYears
         };
-
     }
 }
